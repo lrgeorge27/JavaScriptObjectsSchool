@@ -1,7 +1,9 @@
-school.classes[1].students[1].grade;
-school.classes[0].year;
+//school.classes[1].students[1].grade;
+//school.classes[0].year;
+
+
 var school = {
-    name: "CareerDevs",
+    "name": "CareerDevs",
     twitter: "@CareerDevs",
     classes: [
         {
@@ -34,7 +36,8 @@ var school = {
                 },
                 {
                     name: "Matt Curcio",
-                    grade: 7
+                    grade: 7,
+                    gender: "male"
                 }
             ]
         }
@@ -49,12 +52,14 @@ var school = {
     
     getAvgGrade: function(classNum) {
         // grab the students array from the class number given.
-        var theStudents = this.classes.students //fill out dot notation
-        var total = 0
-        for(var i = 0; i < theStudents.length; i++) {
-            // we need to get the grade of each student. what Item do we use here?
-            total += theStudents[i]
+        var theStudents = this.classes[classNum].students//fill out dot notation. Get the students, assign them
+        var total = 0;
+        for(var i = 0; i < theStudents.length; i++) { //cycling through students
+           // we need to get the grade of each student. what Item do we use here?
+            total += theStudents[i].grade;//add the final key to get the grade value
         }
         return total / theStudents.length;
     }
-}
+};
+
+console.log(school.getAvgGrade(0));
